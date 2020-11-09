@@ -1,14 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals";
+import { ChakraProvider, theme } from "@chakra-ui/core";
+import "focus-visible/dist/focus-visible";
+import App from "./App";
+import Web3ContextProvider from "./context/Web3Context";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider theme={theme} resetCSS={true}>
+      <Web3ContextProvider>
+        <App />
+      </Web3ContextProvider>
+    </ChakraProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

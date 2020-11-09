@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+//import { Heading, Text, HStack, VStack, Button, Input } from "@chakra-ui/core";
+// https://docs.ethers.io/v5/
+import CalculatorTab from "./layouts/CalculatorTab";
+import SimpleStorageTab from "./layouts/SimpleStorageTab";
+import NewTokenTab from "./layouts/NewTokenTab"
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/core";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Tabs colorScheme="purple" size="lg" isFitted={true}>
+        <TabList>
+          <Tab>Calculator</Tab>
+          <Tab>Simple Storage</Tab>
+          <Tab>ERC20</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <CalculatorTab />
+          </TabPanel>
+          <TabPanel>
+            <SimpleStorageTab />
+          </TabPanel>
+          <TabPanel>
+            <NewTokenTab />
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </>
   );
 }
 
